@@ -1,4 +1,4 @@
-const CardFrontView = () => {
+const CardFrontView = ({ cardNumber, cardHolder, cardMM, cardYY }) => {
   return (
     <div className="w-[425px] h-[270px] bg-card rounded-2xl flex flex-col justify-between">
       <div className="flex items-center p-4">
@@ -11,15 +11,15 @@ const CardFrontView = () => {
       </div>
       <div className="px-6 py-4">
         <p className="text-white">Card Number</p>
-        <p className="text-white text-2xl tracking-wide">1111 2222 3333 4444</p>
+        <p className="text-white text-2xl tracking-wide">{cardNumber}</p>
       </div>
       <div className="flex justify-between items-center p-4">
-        <p className="text-white tracking-widest text-xl px-2">
-          Giorgi Babunashvili
-        </p>
+        <p className="text-white tracking-widest text-xl px-2">{cardHolder}</p>
         <div className="flex flex-col justify-between items-center">
           <p className="text-white">Valid Thru</p>
-          <p className="text-white">05/25</p>
+          <p className="text-white">
+            {cardMM}/{cardYY}
+          </p>
         </div>
       </div>
     </div>

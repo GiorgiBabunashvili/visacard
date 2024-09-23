@@ -1,4 +1,9 @@
-const UserForm = () => {
+const UserForm = ({
+  cardNumberHandler,
+  cardHolderHandler,
+  cardMMHandler,
+  cardYYHandler,
+}) => {
   return (
     <form className="w-3/4 bg-white shadow-lg rounded-2xl flex flex-col">
       <div className="flex flex-col px-16 py-4">
@@ -13,6 +18,7 @@ const UserForm = () => {
           type="text"
           name="cardNumber"
           id="cardNumber"
+          onChange={(e) => cardNumberHandler(e.target.value)}
         />
       </div>
       <div className="flex flex-col px-16 py-4">
@@ -20,13 +26,14 @@ const UserForm = () => {
           htmlFor="cardHolder"
           className="uppercase text-sm mb-2 text-gray-500 font-medium"
         >
-          Card Number
+          Card Holder
         </label>
         <input
           className="border border-gray-500 rounded-lg focus:outline-none px-4 py-2"
           type="text"
           name="cardHolder"
           id="cardHolder"
+          onChange={(e) => cardHolderHandler(e.target.value)}
         />
       </div>
       <div className="flex justify-between px-16 py-4">
@@ -42,6 +49,7 @@ const UserForm = () => {
             type="text"
             name="cardMM"
             id="cardMM"
+            onChange={(e) => cardMMHandler(e.target.value)}
           />
         </div>
         <div className="w-1/4 flex flex-col">
@@ -56,6 +64,7 @@ const UserForm = () => {
             type="text"
             name="cardYY"
             id="cardYY"
+            onChange={(e) => cardYYHandler(e.target.value)}
           />
         </div>
         <div className="w-1/4 flex flex-col">
