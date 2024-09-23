@@ -3,6 +3,8 @@ const UserForm = ({
   cardHolderHandler,
   cardMMHandler,
   cardYYHandler,
+  cardCVVHandler,
+  cardViewHandler,
 }) => {
   return (
     <form className="w-3/4 bg-white shadow-lg rounded-2xl flex flex-col">
@@ -79,6 +81,9 @@ const UserForm = ({
             type="text"
             name="cardSVV"
             id="cardSVV"
+            onChange={(e) => cardCVVHandler(e.target.value)}
+            onFocus={() => cardViewHandler("Back")}
+            onBlur={() => cardViewHandler("Front")}
           />
         </div>
       </div>

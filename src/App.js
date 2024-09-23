@@ -8,21 +8,28 @@ function App() {
   const [cardHolder, setCardHolder] = useState("");
   const [cardMM, setCardMM] = useState("");
   const [cardYY, setCardYY] = useState("");
+  const [cardCVV, setCardCVV] = useState("");
+
+  const [cardView, setCardView] = useState("Front");
 
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      <CardFrontView
-        cardNumber={cardNumber}
-        cardHolder={cardHolder}
-        cardMM={cardMM}
-        cardYY={cardYY}
-      />
-      <CardBackView />
+      {cardView === "Front" && (
+        <CardFrontView
+          cardNumber={cardNumber}
+          cardHolder={cardHolder}
+          cardMM={cardMM}
+          cardYY={cardYY}
+        />
+      )}
+      {cardView === "Back" && <CardBackView cardCVV={cardCVV} />}
       <UserForm
         cardNumberHandler={setCardNumber}
         cardHolderHandler={setCardHolder}
         cardMMHandler={setCardMM}
         cardYYHandler={setCardYY}
+        cardCVVHandler={setCardCVV}
+        cardViewHandler={setCardView}
       />
     </div>
   );
