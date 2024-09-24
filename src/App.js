@@ -14,23 +14,9 @@ function App() {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center">
-      {cardView === "Front" && (
-        <CardFrontView
-          cardNumber={cardNumber}
-          cardHolder={cardHolder}
-          cardMM={cardMM}
-          cardYY={cardYY}
-        />
-      )}
-      {cardView === "Back" && <CardBackView cardCVV={cardCVV} />}
-      <UserForm
-        cardNumberHandler={setCardNumber}
-        cardHolderHandler={setCardHolder}
-        cardMMHandler={setCardMM}
-        cardYYHandler={setCardYY}
-        cardCVVHandler={setCardCVV}
-        cardViewHandler={setCardView}
-      />
+      {cardView === "Front" && <CardFrontView />}
+      {cardView === "Back" && <CardBackView />}
+      <UserForm />
     </div>
   );
 }
