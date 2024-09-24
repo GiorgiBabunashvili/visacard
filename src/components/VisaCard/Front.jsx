@@ -1,4 +1,4 @@
-const CardFrontView = ({ cardNumber, cardHolder, cardMM, cardYY }) => {
+const CardFrontView = ({ state }) => {
   return (
     <div className="w-[425px] h-[270px] bg-card rounded-2xl flex flex-col justify-between">
       <div className="flex items-center p-4">
@@ -11,14 +11,16 @@ const CardFrontView = ({ cardNumber, cardHolder, cardMM, cardYY }) => {
       </div>
       <div className="px-6 py-4">
         <p className="text-white">Card Number</p>
-        <p className="text-white text-2xl tracking-wide">{cardNumber}</p>
+        <p className="text-white text-2xl tracking-wide">{state.cardNumber}</p>
       </div>
       <div className="flex justify-between items-center p-4">
-        <p className="text-white tracking-widest text-xl px-2">{cardHolder}</p>
+        <p className="text-white tracking-widest text-xl px-2">
+          {state.cardHolder}
+        </p>
         <div className="flex flex-col justify-between items-center">
           <p className="text-white">Valid Thru</p>
           <p className="text-white">
-            {cardMM}/{cardYY}
+            {state.cardMM}/{state.cardYY}
           </p>
         </div>
       </div>

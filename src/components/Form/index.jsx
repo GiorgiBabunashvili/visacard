@@ -1,11 +1,4 @@
-const UserForm = ({
-  cardNumberHandler,
-  cardHolderHandler,
-  cardMMHandler,
-  cardYYHandler,
-  cardCVVHandler,
-  cardViewHandler,
-}) => {
+const UserForm = ({ dispatch }) => {
   return (
     <form className="w-3/4 bg-white shadow-lg rounded-2xl flex flex-col">
       <div className="flex flex-col px-16 py-4">
@@ -20,7 +13,9 @@ const UserForm = ({
           type="text"
           name="cardNumber"
           id="cardNumber"
-          onChange={(e) => cardNumberHandler(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: "changeCardNumber", value: e.target.value })
+          }
         />
       </div>
       <div className="flex flex-col px-16 py-4">
@@ -35,7 +30,9 @@ const UserForm = ({
           type="text"
           name="cardHolder"
           id="cardHolder"
-          onChange={(e) => cardHolderHandler(e.target.value)}
+          onChange={(e) =>
+            dispatch({ type: "changeCardHolder", value: e.target.value })
+          }
         />
       </div>
       <div className="flex justify-between px-16 py-4">
@@ -51,7 +48,9 @@ const UserForm = ({
             type="text"
             name="cardMM"
             id="cardMM"
-            onChange={(e) => cardMMHandler(e.target.value)}
+            onChange={(e) =>
+              dispatch({ type: "changeCardMM", value: e.target.value })
+            }
           />
         </div>
         <div className="w-1/4 flex flex-col">
@@ -66,7 +65,9 @@ const UserForm = ({
             type="text"
             name="cardYY"
             id="cardYY"
-            onChange={(e) => cardYYHandler(e.target.value)}
+            onChange={(e) =>
+              dispatch({ type: "changeCardYY", value: e.target.value })
+            }
           />
         </div>
         <div className="w-1/4 flex flex-col">
@@ -81,9 +82,11 @@ const UserForm = ({
             type="text"
             name="cardSVV"
             id="cardSVV"
-            onChange={(e) => cardCVVHandler(e.target.value)}
-            onFocus={() => cardViewHandler("Back")}
-            onBlur={() => cardViewHandler("Front")}
+            onChange={(e) =>
+              dispatch({ type: "changeCardCVV", value: e.target.value })
+            }
+            onFocus={() => dispatch({ type: "changeCardView", value: "Back" })}
+            onBlur={() => dispatch({ type: "changeCardView", value: "Front" })}
           />
         </div>
       </div>

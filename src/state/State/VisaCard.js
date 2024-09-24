@@ -4,4 +4,5 @@ export const visaCardState = {
   cardMM: "",
   cardYY: "",
   cardCVV: "",
+  cardView: "Front",
 };
