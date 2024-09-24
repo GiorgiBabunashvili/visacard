@@ -1,4 +1,8 @@
-const UserForm = ({ dispatch }) => {
+import { useContext } from "react";
+import { StoreContextVisaCard } from "../../App";
+
+const UserForm = () => {
+  const { dispatchVisaCard } = useContext(StoreContextVisaCard);
   return (
     <form className="w-3/4 bg-white shadow-lg rounded-2xl flex flex-col">
       <div className="flex flex-col px-16 py-4">
@@ -14,7 +18,11 @@ const UserForm = ({ dispatch }) => {
           name="cardNumber"
           id="cardNumber"
           onChange={(e) =>
-            dispatch({ type: "changeCardNumber", value: e.target.value })
+            dispatchVisaCard({
+              type: "change",
+              propertId: "cardNumber",
+              value: e.target.value,
+            })
           }
         />
       </div>
@@ -31,7 +39,11 @@ const UserForm = ({ dispatch }) => {
           name="cardHolder"
           id="cardHolder"
           onChange={(e) =>
-            dispatch({ type: "changeCardHolder", value: e.target.value })
+            dispatchVisaCard({
+              type: "change",
+              propertId: "cardHolder",
+              value: e.target.value,
+            })
           }
         />
       </div>
@@ -49,7 +61,11 @@ const UserForm = ({ dispatch }) => {
             name="cardMM"
             id="cardMM"
             onChange={(e) =>
-              dispatch({ type: "changeCardMM", value: e.target.value })
+              dispatchVisaCard({
+                type: "change",
+                propertId: "cardMM",
+                value: e.target.value,
+              })
             }
           />
         </div>
@@ -66,7 +82,11 @@ const UserForm = ({ dispatch }) => {
             name="cardYY"
             id="cardYY"
             onChange={(e) =>
-              dispatch({ type: "changeCardYY", value: e.target.value })
+              dispatchVisaCard({
+                type: "change",
+                propertId: "cardYY",
+                value: e.target.value,
+              })
             }
           />
         </div>
@@ -83,10 +103,26 @@ const UserForm = ({ dispatch }) => {
             name="cardSVV"
             id="cardSVV"
             onChange={(e) =>
-              dispatch({ type: "changeCardCVV", value: e.target.value })
+              dispatchVisaCard({
+                type: "change",
+                propertId: "cardCVV",
+                value: e.target.value,
+              })
             }
-            onFocus={() => dispatch({ type: "changeCardView", value: "Back" })}
-            onBlur={() => dispatch({ type: "changeCardView", value: "Front" })}
+            onFocus={() =>
+              dispatchVisaCard({
+                type: "change",
+                propertId: "cardView",
+                value: "Back",
+              })
+            }
+            onBlur={() =>
+              dispatchVisaCard({
+                type: "change",
+                propertId: "cardView",
+                value: "Front",
+              })
+            }
           />
         </div>
       </div>
